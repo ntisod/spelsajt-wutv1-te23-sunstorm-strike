@@ -1,129 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+body, html {
+  font-family: Arial, sans-serif;
+  background: #333;
+  color: white;
+}
 
-    /* Navbar styles */
-    nav {
-      background-color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      position: relative;
-    }
+/* Desktop navbar */
+.desktop-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  flex-wrap: wrap;
+ height: 50px;
+ margin-top: 50px;
+}
 
-    nav a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      text-align: center;
-    }
+.desktop-nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+}
 
-    nav a:hover {
-      background-color: #575757;
-    }
+.desktop-nav a:hover {
+  background-color: #575757;
+}
 
-    /* Hamburger Button */
-    .hamburger {
-      display: none;
-      font-size: 30px;
-      color: white;
-      background: none;
-      border: none;
-      position: absolute;
-      right: 20px;
-      top: 10px;
-      cursor: pointer;
-    }
+/* Hamburger button (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
 
-    /* Hero section */
-    .hero {
-      background-image: url('Sunstormstriker.png'); 
-     /* Hero section styles */
-     background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    text-align: center;
-    padding: 20px;
-    flex-direction: column; 
+/* Mobile nav sidebar (hidden by default) */
+.mobile-nav {
+  display: none;
+}
+
+/* Dimmed overlay */
+.overlay {
+  display: none;
+}
+
+/* Hero */
+.hero {
+  background-image: url('Sunstormstriker.png');
+  opacity: 0.6;
+  width:100%;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Times New Roman', serif;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #f0f0f0;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out 1s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Content sections */
+.content {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  background-color: #472222;
+  line-height: 1.4;
+}
+
+.about-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-images img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.about-images img:hover {
+  transform: scale(1.05);
+}
+
+.asset-box {
+  background-color: #c17248;
+
+  padding: 10px;
+  list-style-type: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+  text-align: left;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  max-width: 300px; /* Controls width */
+  max-width: 75vw; /* Keeps it responsive on small screens */
+  text-align: center;
+}
+
+
+/* Mobile-specific styles */
+@media (max-width: 500px) {
+  .desktop-nav {
+    display: none;
   }
-  
-  
-  .hero div {
-    text-align: center;
-  }
-  
- 
-  .hero h1 {
-    margin: 0;
-    font-size: 2.8em;
-  }
-  
-  /* Subtitle */
-  .hero p {
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #f0f0f0;
-  }
-  
 
-  
-    .content {
-      padding: 40px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
-
+  .hamburger {
+    display: block;
     
-    .about-images {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-      flex-wrap: wrap; 
-    }
+  }
 
-    .about-images img {
-      width: 200px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #2e2e2e;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1002;
+  }
 
-    .about-images img:hover {
-      transform: scale(1.05);
-    }
+  .hero {
+    height: 50vh; /* Half the screen height */
+    background-size: cover; /* Still looks good */
+    background-position: center;
+  }
+  .mobile-nav.open {
+    left: 0;
+  }
 
-    /* Mobile */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        display: none;
-        width: 100%;
-      }
+  .mobile-nav a {
+    padding: 16px 20px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+  }
 
-      nav.open {
-        display: flex;
-      }
+  .mobile-nav a:hover {
+    background-color: #444;
+  }
 
-      .hamburger {
-        display: block;
-      }
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 
-      nav a {
-        width: 100%;
-        border-top: 1px solid #444;
-      }
-    }
-  
+  .overlay.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+/* Tablets / iPads */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hero {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+  }
+}
