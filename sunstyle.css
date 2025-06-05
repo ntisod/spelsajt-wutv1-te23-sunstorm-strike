@@ -17,7 +17,7 @@ body, html {
   background-color: #333;
   flex-wrap: wrap;
  height: 50px;
- margin-top: 50px;
+ margin-top: 0px;
 }
 
 .desktop-nav a {
@@ -56,7 +56,7 @@ body, html {
 
 /* Hero */
 .hero {
-  background-image: url('Sunstormstriker.png');
+  background-image: url('planesrr.jpg');
   opacity: 0.6;
   width:100%;
   background-size: cover;
@@ -135,6 +135,38 @@ body, html {
   max-width: 300px; /* Controls width */
   max-width: 75vw; /* Keeps it responsive on small screens */
   text-align: center;
+}
+
+div {
+  padding-top: 10px;
+  padding-left: 10px; 
+} 
+
+.guide-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.guide-item {
+  flex: 1 1 200px; /* Flexible basis with min size */
+  max-width: 220px;
+  text-align: center;
+}
+
+.guide-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.guide-item p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #ddd;
 }
 
 
