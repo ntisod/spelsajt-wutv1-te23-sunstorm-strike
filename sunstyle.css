@@ -181,6 +181,10 @@ div {
     
   }
 
+  .Logo {
+    display: none;
+  }
+
   .mobile-nav {
     display: flex;
     flex-direction: column;
@@ -236,10 +240,13 @@ div {
 }
 
 /* Tablets / iPads */
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 539px) and (max-width: 1024px) {
   .hero {
     height: 60vh;
     background-size: cover;
     background-position: center;
+  }
+  .Logo {
+    display: none;
   }
 }
